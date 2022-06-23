@@ -1,0 +1,9 @@
+name: 'Composite Action Demo'
+description: 'Simple action that gives you a Chuck Norris "fact" whenever called.'
+
+runs:
+  using: composite
+  steps:
+  - name: 'Fetching facts'
+    shell: pwsh
+    run: Invoke-RestMethod -Uri https://api.chucknorris.io/jokes/random | Select-Object -ExpandProperty value
